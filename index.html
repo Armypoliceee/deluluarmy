@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ARMY Delulu Analyzer 🔍💜</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f0ff;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #8030a7;
+    }
+    input, button {
+      padding: 10px 15px;
+      font-size: 16px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 2px solid #8030a7;
+    }
+    button {
+      background-color: #8030a7;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #a259d8;
+    }
+    #result {
+      margin-top: 30px;
+      background-color: #fff;
+      border: 2px dashed #8030a7;
+      padding: 20px;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 12px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔍 ARMY Delulu Analyzer</h1>
+  <p>Enter your @ to reveal your delulu diagnosis 💭</p>
+  <input type="text" id="username" placeholder="@YourHandle"><br>
+  <button onclick="analyzeDelulu()">Analyze</button>
+
+  <div id="result">
+    <!-- Result will appear here -->
+  </div>
+
+  <script>
+    function analyzeDelulu() {
+      const username = document.getElementById("username").value.trim();
+      if (!username) {
+        alert("Please enter your @!");
+        return;
+      }
+
+      const deluluPercent = Math.floor(Math.random() * 101);
+      const diagnoses = [
+        "Believes Jungkook wrote a song about them.",
+        "Swears they saw Jimin in a dream—and it was real.",
+        "Thinks Namjoon’s book posts are coded love notes.",
+        "Claims they share a telepathic link with Taehyung.",
+        "Believes Yoongi secretly reads their tweets.",
+        "Thinks Hobi waved at them through the screen ON PURPOSE."
+      ];
+
+      const penalties = [
+        "24 hours in ARMY Jail",
+        "2 Reality Check Classes",
+        "Bias Loyalty Bootcamp",
+        "1 Week Social Media Detox",
+        "Emergency Therapy Session with Jin",
+        "Assigned to clean Bangtan Bomb archives"
+      ];
+
+      const randomDiagnosis = diagnoses[Math.floor(Math.random() * diagnoses.length)];
+      const randomPenalty = penalties[Math.floor(Math.random() * penalties.length)];
+
+      const resultHTML = `
+        <h2>@${username}'s Delulu Report</h2>
+        <p><strong>💜 Delulu Level:</strong> ${deluluPercent}%</p>
+        <p><strong>🩺 Diagnosis:</strong> ${randomDiagnosis}</p>
+        <p><strong>🚔 Penalty:</strong> ${randomPenalty}</p>
+      `;
+
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = resultHTML;
+      resultDiv.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
